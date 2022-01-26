@@ -1,0 +1,374 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "A simple bookshop API",
+        "title": "bookshop",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.yoursite.com/"
+        }
+    ],
+    "tags": [],
+    "paths": {
+        "/books": {
+            "get": {
+                "summary": "Get all instances of Books",
+                "tags": [
+                    "Books"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Books"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/books/{id}": {
+            "get": {
+                "summary": "Retrieve the specified instance of Books by id",
+                "tags": [
+                    "Books"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the Books",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Books"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "summary": "Get all instances of Orders",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Orders"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "summary": "Retrieve the specified instance of Orders by id",
+                "tags": [
+                    "Orders"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "id of the Orders",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Orders"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/400"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/401"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/403"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    },
+                    "504": {
+                        "$ref": "#/components/responses/504"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Books": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Unique identifier for book",
+                        "example": "1"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Book title",
+                        "example": "A tale of two cities"
+                    },
+                    "author": {
+                        "type": "string",
+                        "description": "Book author",
+                        "example": "Charles Dickens"
+                    }
+                }
+            },
+            "Orders": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Unique order ID",
+                        "example": "100"
+                    },
+                    "bookId": {
+                        "type": "integer",
+                        "description": "Book ID in the order",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of customer",
+                        "example": "Jo Blogs"
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "Address to dispatch order to",
+                        "example": "12 North Street"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "Date of order",
+                        "example": "2022-01-01"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "400": {
+                "description": "Bad Request",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "BAD_REQUEST"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "Bad request in body/params/headers"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "401": {
+                "description": "Unauthorized",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "UNAUTHORIZED"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "Authentication error"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "403": {
+                "description": "Forbidden",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "FORBIDDEN"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "You cannot access this resource"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "404": {
+                "description": "Not Found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "RESOURCE_NOT_FOUND"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "The resource with id XX cannot be found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "500": {
+                "description": "Internal Server Error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "UNEXPECTED_SERVER_ERROR"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "The server encountered an error"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "504": {
+                "description": "Gateway Timeout",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "errorCode": {
+                                    "type": "string",
+                                    "enum": [
+                                        "REQUEST_TIMEOUT"
+                                    ]
+                                },
+                                "errorDescription": {
+                                    "type": "string",
+                                    "example": "The server encountered a timeout"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
