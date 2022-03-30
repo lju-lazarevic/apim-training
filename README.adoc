@@ -1,0 +1,29 @@
+= Hands-on introduction to Gravitee API Management Platform
+
+This is the supporting repository for the hands-on introduction to Gravitee API Management Platform.
+
+Video link for the session will be added soon.
+
+*Supporting material for the hands-on course:*
+
+- https://github.com/lju-lazarevic/apim-training/blob/main/Hands%20on%20API%20Management%20training.pdf[Slides^] for the talk
+- https://raw.githubusercontent.com/lju-lazarevic/apim-training/main/bookshop_swagger_to_complete.json[`bookshop_swagger_to_complete.json`^] for those of you who would like to try to build the schema yourselves
+- https://raw.githubusercontent.com/lju-lazarevic/apim-training/main/bookshop_swagger.json[`bookshop_swagger.json`^] is the completed version for use with APIM
+
+*Gravitee APIM URLs:*
+
+- http://localhost:8082 - APIM Gateway
+- http://localhost:8084 - APIM Management Console
+- http://localhost:8085 - APIM Developer Portal
+
+Default credentials:
+
+- Username: admin
+- Password: admin
+
+*Useful links:*
+
+- https://community.gravitee.io[Gravitee community forum^] - a place to ask questions, talk about your projects and discuss the API Management platform
+- https://docs.gravitee.io[Gravitee documentation^]
+- https://dev.gravitee.io/video[Gravitee YouTube channel^]
+- https://gravitee.io/blog[Gravitee blog posts^]
